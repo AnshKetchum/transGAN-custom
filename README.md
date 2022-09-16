@@ -2,6 +2,8 @@
 
 Paper Authors: Yifan Jiang, Shiyu Chang, Zhangyang Wang
 
+#Credit to [[this implementation]](https://github.com/asarigun/TransGAN) for base code
+
 *CVPR 2021*
 
 <!--
