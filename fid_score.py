@@ -286,6 +286,8 @@ def calculate_fid_given_paths_torch(gen_imgs, path, require_grad=False, batch_si
         return fid_value
 
 
+
+
 def get_fid(fid_stat, epoch, generator, num_img, val_batch_size, latent_dim, writer_dict=None, cls_idx=None):
     generator.eval()
     with torch.no_grad():
