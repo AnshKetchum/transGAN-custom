@@ -16,7 +16,6 @@ from tqdm import tqdm
 from copy import deepcopy
 
 import PIL
-from config import YOLO_DIR
 from utils import *
 from models import *
 from fid_score import *
@@ -24,6 +23,7 @@ from inception_score import *
 from Dataset import Dataset
 
 parser = argparse.ArgumentParser()
+parser.add_argument('--base_dir', type=str, default="error", help='Base directory!!' )
 parser.add_argument('--image_size', type=int, default= 32 , help='Size of image for discriminator input.')
 parser.add_argument('--initial_size', type=int, default=8 , help='Initial size for generator.')
 parser.add_argument('--patch_size', type=int, default=4 , help='Patch size for generated image.')
@@ -57,6 +57,8 @@ device = torch.device(dev)
 print("Device:",device)
 
 args = parser.parse_args()
+
+YOLO_DIR = args.base_dir
 
 generator= Generator(depth1=5, depth2=4, depth3=2, initial_size=8, dim=384, heads=4, mlp_ratio=4, drop_rate=0.5)#,device = device)
 generator.to(device)
