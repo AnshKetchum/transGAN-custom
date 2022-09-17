@@ -23,7 +23,7 @@ from inception_score import *
 from Dataset import Dataset
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--base_dir', type=str, default="error", help='Base directory!!' )
+parser.add_argument('--base_dir', type=str, default=".", help='Base directory!!' )
 parser.add_argument('--image_size', type=int, default= 32 , help='Size of image for discriminator input.')
 parser.add_argument('--initial_size', type=int, default=8 , help='Initial size for generator.')
 parser.add_argument('--patch_size', type=int, default=4 , help='Patch size for generated image.')
