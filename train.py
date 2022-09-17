@@ -20,7 +20,7 @@ from utils import *
 from models import *
 from fid_score import *
 from inception_score import *
-from Dataset import Dataset
+from dataset import Dataset
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--base_dir', type=str, default=".", help='Base directory!!' )
