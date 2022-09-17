@@ -6,7 +6,7 @@ for the Pytorch Dataloader API
 import torch
 import PIL
 import pandas as pd
-from torchvisions import transforms
+from torchvision import transforms
 
 class Dataset(torch.utils.data.Dataset):
     def __init__(self, IMAGE_SIZE = 256):
