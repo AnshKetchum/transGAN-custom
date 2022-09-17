@@ -17,7 +17,7 @@ class Dataset(torch.utils.data.Dataset):
             [
             transforms.Resize((IMAGE_SIZE, IMAGE_SIZE)),
             transforms.ToTensor(), #Convert to tensor
-            transforms.Normalize( mean=mean , std= std)] #Normalize - subtract by the mean and divide by the standard deviation
+            transforms.Normalize( mean = [0.485, 0.456, 0.406] , std = [0.229, 0.224, 0.225])] #Normalize - subtract by the mean and divide by the standard deviation
         )
 
 

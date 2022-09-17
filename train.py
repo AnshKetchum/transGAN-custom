@@ -102,7 +102,7 @@ def generate_fid_stat(absolute_file_directory, IMAGE_SIZE = 256):
             [
             transforms.Resize((IMAGE_SIZE, IMAGE_SIZE)),
             transforms.ToTensor(), #Convert to tensor
-            transforms.Normalize( mean=mean , std= std)] #Normalize - subtract by the mean and divide by the standard deviation
+            transforms.Normalize( mean = [0.485, 0.456, 0.406] , std = [0.229, 0.224, 0.225])] #Normalize usign imagenet's means - subtract by the mean and divide by the standard deviation
         )
     
     for images in os.listdir(absolute_file_directory):
