@@ -98,7 +98,7 @@ print("optim:",args.optim)
 def generate_fid_stat(absolute_file_directory, IMAGE_SIZE = 256):
     img_tensor = []
     
-    transforms = transforms.Compose( 
+    transform = transforms.Compose( 
             [
             transforms.Resize((IMAGE_SIZE, IMAGE_SIZE)),
             transforms.ToTensor(), #Convert to tensor
@@ -106,7 +106,7 @@ def generate_fid_stat(absolute_file_directory, IMAGE_SIZE = 256):
         )
     
     for images in os.listdir(absolute_file_directory):
-        img_tensor.append(transforms(PIL.Image.open(os.path.join(YOLO_DIR, 'raw_dataset', row["dataset-path"])).convert("RGB")))
+        img_tensor.append(transform(PIL.Image.open(os.path.join(YOLO_DIR, 'raw_dataset', row["dataset-path"])).convert("RGB")))
     
     return img_tensor
 
