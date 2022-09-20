@@ -10,10 +10,11 @@ import pandas as pd
 from torchvision import transforms
 
 class Dataset(torch.utils.data.Dataset):
-    def __init__(self, IMAGE_SIZE = 256):
+    def __init__(self, YOLO_DIR, IMAGE_SIZE = 256):
 
         #Initialize parameters from constructor
-        self.df = pd.read_csv(os.path.join(YOLO_DIR, 'raw_dataset' ,'images-info.csv'))
+        self.YOLO_DIR = YOLO_DIR
+        self.df = pd.read_csv(os.path.join(self.YOLO_DIR, 'raw_dataset' ,'images-info.csv'))
         self.transforms = transforms.Compose( 
             [
             transforms.Resize((IMAGE_SIZE, IMAGE_SIZE)),
@@ -33,7 +34,7 @@ class Dataset(torch.utils.data.Dataset):
         row = self.df.iloc[index]
 
         #Read the image
-        X = PIL.Image.open(os.path.join(YOLO_DIR, 'raw_dataset', row["dataset-path"])).convert("RGB")
+        X = PIL.Image.open(os.path.join(self.YOLO_DIR, 'raw_dataset', row["dataset-path"])).convert("RGB")
         X = self.transforms(X)
 
         #Read the labels
