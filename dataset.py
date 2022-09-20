@@ -3,6 +3,7 @@ This cell contains the Dataset object
 for the Pytorch Dataloader API 
 '''
 
+import os
 import torch
 import PIL
 import pandas as pd
