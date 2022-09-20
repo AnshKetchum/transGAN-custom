@@ -106,7 +106,7 @@ def generate_fid_stat(absolute_file_directory, IMAGE_SIZE = 256):
         )
     
     for images in os.listdir(absolute_file_directory):
-        img_tensor.append(transform(PIL.Image.open(os.path.join(YOLO_DIR, 'raw_dataset', images)).convert("RGB")))
+        img_tensor.append(transform(PIL.Image.open(os.path.join(absolute_file_directory, images)).convert("RGB")))
     
     return img_tensor
 
