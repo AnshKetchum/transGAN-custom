@@ -277,7 +277,7 @@ def calculate_fid_given_paths_torch(gen_imgs, path, require_grad=False, batch_si
         m1, s1 = _compute_statistics_of_path(gen_imgs, model, batch_size,
                                              dims, cuda)
         # print(f'generated stat: {m1}, {s1}')
-        m2, s2 = _compute_statistics_of_path(path, model, batch_size,
+        m2, s2 = calculate_activation_statistics(path, model, batch_size,
                                              dims, cuda)
         # print(f'GT stat: {m2}, {s2}')
         fid_value = torch_calculate_frechet_distance(m1.to("cuda:0"), s1.to("cuda:0"), torch.tensor(m2).float().cuda().to("cuda:0"),
