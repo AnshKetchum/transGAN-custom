@@ -255,14 +255,12 @@ def calculate_fid_given_paths_torch(gen_imgs, path, require_grad=False, batch_si
     """
     Calculates the FID of two paths
     :param gen_imgs: The value range of gen_imgs should be (-1, 1). Just the output of tanh.
-    :param path: fid file path. *.npz.
+    :param path: a tensor of images
     :param batch_size:
     :param cuda:
     :param dims:
     :return:
     """
-    if not os.path.exists(path):
-        raise RuntimeError('Invalid path: %s' % path)
 
     assert gen_imgs.shape[0] >= dims, f'gen_imgs size: {gen_imgs.shape}'  # or will lead to nan
 
