@@ -154,7 +154,7 @@ def train(noise,generator, discriminator, optim_gen, optim_dis,
 
     transform = transforms.Compose([transforms.Resize(size=(img_size, img_size)),transforms.RandomHorizontalFlip(),transforms.ToTensor(),transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
 
-    train_set = Dataset(YOLO_DIR)
+    train_set = Dataset(YOLO_DIR, transform)
     train_loader = torch.utils.data.DataLoader(dataset=train_set, batch_size=30, shuffle=True)
 
     for index, (img, _) in enumerate(train_loader):
