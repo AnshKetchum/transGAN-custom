@@ -160,8 +160,6 @@ def get_activations(gen_imgs, model, batch_size=50, dims=2048,
 
         images = gen_imgs[start: end]
 
-        print(type(images), type(gen_imgs))
-
         if type(images) == np.ndarray:
             images = torch.stack(images.tolist())
 
