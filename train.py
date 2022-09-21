@@ -98,12 +98,8 @@ print("optim:",args.optim)
 def generate_fid_stat(absolute_file_directory, IMAGE_SIZE = 256):
     img_tensor = []
     
-    transform = transforms.Compose( 
-            [
-            transforms.Resize((IMAGE_SIZE, IMAGE_SIZE)),
-            transforms.ToTensor(), #Convert to tensor
-            transforms.Normalize( mean = [0.485, 0.456, 0.406] , std = [0.229, 0.224, 0.225])] #Normalize usign imagenet's means - subtract by the mean and divide by the standard deviation
-        )
+    transform = transforms.Compose([transforms.Resize(size=(img_size, img_size)),transforms.ToTensor(),transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
+
     
     for images in os.listdir(absolute_file_directory):
         img_tensor.append(transform(PIL.Image.open(os.path.join(absolute_file_directory, images)).convert("RGB")))
