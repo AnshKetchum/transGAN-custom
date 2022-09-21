@@ -164,7 +164,7 @@ def get_activations(gen_imgs, model, batch_size=50, dims=2048,
 
         if type(images) == np.ndarray:
             print(images.shape)
-            images = torch.from_numpy(images.astype(np.float))
+            images = torch.stack(images.tolist())
             print(images.shape)
 
         model.to("cuda:0")
