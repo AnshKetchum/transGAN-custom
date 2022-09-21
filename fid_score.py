@@ -159,6 +159,8 @@ def get_activations(gen_imgs, model, batch_size=50, dims=2048,
         end = start + batch_size
 
         images = gen_imgs[start: end]
+
+        print(type(images), type(gen_imgs))
         model.to("cuda:0")
         pred = model(images.to("cuda:0"))[0]
 
