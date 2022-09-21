@@ -95,7 +95,7 @@ dis_scheduler = LinearLrDecay(optim_dis, args.lr_dis, 0.0, 0, args.max_iter * ar
 
 print("optim:",args.optim)
 
-def generate_fid_stat(absolute_file_directory, IMAGE_SIZE = 256):
+def generate_fid_stat(absolute_file_directory, IMAGE_SIZE = 256, img_size = 32):
     img_tensor = []
     
     transform = transforms.Compose([transforms.Resize(size=(img_size, img_size)),transforms.ToTensor(),transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
