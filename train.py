@@ -207,7 +207,7 @@ def train(noise,generator, discriminator, optim_gen, optim_dis,
         if gen_step and index % 100 == 0:
             sample_imgs = generated_imgs[:25]
             img_grid = make_grid(sample_imgs, nrow=5, normalize=True, scale_each=True)
-            save_image(sample_imgs, f'generated_images/generated_img_{epoch}_{index % len(train_loader)}.jpg', nrow=5, normalize=True, scale_each=True)            
+            # save_image(sample_imgs, f'generated_images/generated_img_{epoch}_{index % len(train_loader)}.jpg', nrow=5, normalize=True, scale_each=True)            
             tqdm.write("[Epoch %d] [Batch %d/%d] [D loss: %f] [G loss: %f]" %
                 (epoch+1, index % len(train_loader), len(train_loader), loss_dis.item(), gener_loss.item()))
 
